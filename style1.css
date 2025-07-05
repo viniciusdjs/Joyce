@@ -1,92 +1,75 @@
-@media screen and (max-width: 768px) {
-    /* Estilos para telas menores (exemplo: smartphones) */
-  } 
-
-*{
+/* Estilos globais */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    
 }
 
-
-body{
+body {
     background-color: #000;
-}  
+}
 
-h1{ 
+/* Cabeçalhos */
+h1 {
     color: #355dd4;
-    
+    font-size: clamp(24px, 6vw, 50px); /* Responsivo */
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-#inicio{
-    position: relative;  
-    bottom:  345px;
-    left: 80px;
-    font-size: 50px;
+h2 {
+    color: #355dd4;
+    font-size: clamp(20px, 4vw, 36px);
+    text-align: center;
+    margin-top: 20px;
 }
 
-#carta{
-    position: relative;
-    top: 359px;
-    left: 129px;   
+h2 a {
+    color: #355dd4;
 }
 
-h2{
-    color: #355dd4;  
+/* Posicionamento adaptado */
+#inicio {
+    font-size: clamp(24px, 6vw, 50px);
+    margin-top: 20px;
 }
 
-h2 a{
-    color: #355dd4  ;
+/* Estilização da carta */
+#carta {
+    margin-top: 20px;
 }
-ul{ 
-    position: relative;
+
+/* Lista responsiva */
+ul {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding-top: 10px;
-    padding-right: 100px;
-    
+    align-items: center;
+    padding: 20px;
 }
 
-ul li{
-    position: relative;
+/* Itens da lista */
+ul li {
     list-style: none;
 }
 
-#pb{
-    position: relative;
-    left: 30px;
-    top: 10px;
-}
-
-#p{
-    position: relative;
-    left: 30px;
-    top: 10px;
-}
-
-#l{
-    position: relative;
-    left: 30px;
-    top: 10px;
-}
-
-ul li a{
-    position: relative;
-    font-size: 2em;
+/* Links animados */
+ul li a {
+    font-size: clamp(16px, 4vw, 32px);
     text-decoration: none;
     line-height: 1em;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: transparent;
-    -webkit-text-stroke: 4px rgba(red, green, blue, alpha);
+    -webkit-text-stroke: 4px rgba(0, 0, 0, 0.5); /* Corrigi o rgba */
+    position: relative;
 }
 
-ul li a::before{
+/* Efeito hover */
+ul li a::before {
     content: attr(data-text);
-    position: absolute; 
+    position: absolute;
     color: var(--clr);
     width: 0;
     overflow: hidden;
@@ -95,8 +78,25 @@ ul li a::before{
     -webkit-text-stroke: 1px var(--clr);
 }
 
-ul li a:hover::before{
+ul li a:hover::before {
     width: 100%;
     filter: drop-shadow(0 0 25px var(--clr));
+}
 
+/* IDs ajustados para não usar deslocamentos */
+#pb,
+#p,
+#l {
+    margin-top: 10px;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    ul {
+        padding-right: 0;
+    }
+
+    ul li a {
+        font-size: clamp(14px, 5vw, 28px);
+    }
 }
