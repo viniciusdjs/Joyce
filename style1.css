@@ -1,3 +1,4 @@
+/* Reset e base */
 * {
     margin: 0;
     padding: 0;
@@ -7,20 +8,16 @@
 
 body {
     background-color: #000;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    min-height: 100vh;
     position: relative;
 }
 
-/* Container superior: logo + link */
-.top-container {
+/* Cabeçalho flexível */
+.header {
     display: flex;
-    justify-content: flex-start; /* Mantém à esquerda */
+    justify-content: space-between;
     align-items: center;
     padding: 40px;
-    gap: 40px;
 }
 
 /* Logo */
@@ -42,8 +39,8 @@ body {
 /* Link “Feliz” */
 ul {
     list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 
 ul li a {
@@ -73,15 +70,29 @@ ul li a:hover::before {
     filter: drop-shadow(0 0 25px var(--clr));
 }
 
-/* Container inferior: De / Para */
+/* Container inferior */
 .bottom-container {
     position: absolute;
     right: 20px;
     bottom: 20px;
+    text-align: right;
 }
 
-#carta {
+.bottom-container h2 {
     color: #355dd4;
     font-size: clamp(16px, 4vw, 36px);
-    text-align: right;
+}
+
+/* Responsividade opcional (pode ajustar conforme testar) */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .bottom-container {
+        right: 10px;
+        bottom: 10px;
+    }
 }
