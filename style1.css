@@ -1,4 +1,3 @@
-/* Estilos globais */
 * {
     margin: 0;
     padding: 0;
@@ -8,53 +7,45 @@
 
 body {
     background-color: #000;
-}
-
-/* Cabeçalhos */
-h1 {
-    color: #355dd4;
-    font-size: clamp(24px, 6vw, 50px); /* Responsivo */
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-h2 {
-    color: #355dd4;
-    font-size: clamp(20px, 4vw, 36px);
-    text-align: center;
-    margin-top: 20px;
-}
-
-h2 a {
-    color: #355dd4;
-}
-
-/* Posicionamento adaptado */
-#inicio {
-    font-size: clamp(24px, 6vw, 50px);
-    margin-top: 20px;
-}
-
-/* Estilização da carta */
-#carta {
-    margin-top: 20px;
-}
-
-/* Lista responsiva */
-ul {
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    justify-content: space-between;
+    position: relative;
+}
+
+/* Container superior: logo + link */
+.top-container {
+    display: flex;
+    justify-content: flex-start; /* Mantém à esquerda */
     align-items: center;
-    padding: 20px;
+    padding: 40px;
+    gap: 40px;
 }
 
-/* Itens da lista */
-ul li {
+/* Logo */
+.logo {
+    font-size: clamp(32px, 8vw, 72px);
+    font-weight: bold;
+    color: #355dd4;
+    text-transform: uppercase;
+    animation: logoAnimation 1s linear forwards;
+    opacity: 0;
+}
+
+@keyframes logoAnimation {
+    0% { opacity: 0; transform: scale(1.2); }
+    50% { opacity: 1; transform: scale(1.2); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Link “Feliz” */
+ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-/* Links animados */
 ul li a {
     font-size: clamp(16px, 4vw, 32px);
     text-decoration: none;
@@ -62,11 +53,10 @@ ul li a {
     letter-spacing: 1px;
     text-transform: uppercase;
     color: transparent;
-    -webkit-text-stroke: 4px rgba(0, 0, 0, 0.5); /* Corrigi o rgba */
+    -webkit-text-stroke: 2px #4169E1;
     position: relative;
 }
 
-/* Efeito hover */
 ul li a::before {
     content: attr(data-text);
     position: absolute;
@@ -74,7 +64,7 @@ ul li a::before {
     width: 0;
     overflow: hidden;
     transition: 1s;
-    border-right: 8px solid var(--clr);
+    border-right: 4px solid var(--clr);
     -webkit-text-stroke: 1px var(--clr);
 }
 
@@ -83,20 +73,15 @@ ul li a:hover::before {
     filter: drop-shadow(0 0 25px var(--clr));
 }
 
-/* IDs ajustados para não usar deslocamentos */
-#pb,
-#p,
-#l {
-    margin-top: 10px;
+/* Container inferior: De / Para */
+.bottom-container {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
 }
 
-/* Media Queries */
-@media screen and (max-width: 768px) {
-    ul {
-        padding-right: 0;
-    }
-
-    ul li a {
-        font-size: clamp(14px, 5vw, 28px);
-    }
+#carta {
+    color: #355dd4;
+    font-size: clamp(16px, 4vw, 36px);
+    text-align: right;
 }
