@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joyce</title>
     <style>
         /* Reset e base */
@@ -16,58 +16,55 @@
         body {
             background-color: #000;
             min-height: 100vh;
-            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
             color: #355dd4;
+            padding: 40px 20px;
         }
 
-        /* Cabeçalho flexível */
+        /* Conteúdo do topo */
         .header {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            padding: 40px 20px;
-            position: relative;
-        }
-
-        /* Logo centralizado */
-        .logo {
-            flex: 1;
-            font-size: clamp(32px, 8vw, 72px);
-            font-weight: bold;
-            color: #355dd4;
-            text-transform: uppercase;
-            text-align: center;
-            animation: logoAnimation 1s linear forwards;
+            margin-top: 10vh; /* Aqui define a distância do topo */
+            animation: fadeIn 1s ease forwards;
             opacity: 0;
         }
 
-        @keyframes logoAnimation {
+        @keyframes fadeIn {
             0% { opacity: 0; transform: scale(1.2); }
             50% { opacity: 1; transform: scale(1.2); }
             100% { opacity: 1; transform: scale(1); }
         }
 
-        /* Container do link alinhado à direita, mas sem ocupar tanto espaço */
+        .logo {
+            font-size: clamp(32px, 8vw, 72px);
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
         .link-container {
-            flex: 0 0 auto;
-            text-align: right;
-            margin-left: 20px;
+            margin-top: 10px;
         }
 
         /* Link “Feliz” */
         ul {
             list-style: none;
+            padding: 0;
         }
 
         ul li a {
             font-size: clamp(16px, 4vw, 32px);
             text-decoration: none;
-            line-height: 1em;
             letter-spacing: 1px;
             text-transform: uppercase;
             color: transparent;
             -webkit-text-stroke: 2px #4169E1;
             position: relative;
-            padding: 0 10px;
         }
 
         ul li a::before {
@@ -86,39 +83,28 @@
             filter: drop-shadow(0 0 25px var(--clr));
         }
 
-        /* Container inferior */
+        /* Rodapé (carta) */
         .bottom-container {
-            position: absolute;
-            right: 20px;
-            bottom: 20px;
-            text-align: right;
-            color: #355dd4;
+            text-align: center;
+            margin-bottom: 5vh; /* deixa próximo do rodapé, mas não colado */
         }
 
         .bottom-container h2 {
             font-size: clamp(16px, 4vw, 36px);
         }
 
-        /* Responsividade */
-
-        /* Para celulares - telas até 768px */
+        /* Responsividade celular */
         @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
+            body {
                 padding: 20px 10px;
             }
 
-            .logo {
-                flex: none;
-                text-align: center;
-                margin-bottom: 20px;
-                font-size: clamp(24px, 8vw, 48px);
+            .header {
+                margin-top: 5vh;
             }
 
-            .link-container {
-                flex: none;
-                text-align: center;
-                margin-left: 0; /* tira o espaço lateral no mobile */
+            .logo {
+                font-size: clamp(24px, 8vw, 48px);
             }
 
             ul li a {
@@ -127,31 +113,14 @@
             }
 
             .bottom-container {
-                right: 10px;
-                bottom: 10px;
+                margin-bottom: 3vh;
+            }
+
+            .bottom-container h2 {
                 font-size: clamp(14px, 4vw, 24px);
             }
         }
 
-        /* Para monitores maiores, até 1920px (full HD) */
-        @media (min-width: 1200px) {
-            .header {
-                padding: 60px 80px;
-            }
-
-            .logo {
-                font-size: clamp(48px, 6vw, 72px);
-            }
-
-            ul li a {
-                font-size: clamp(20px, 3vw, 32px);
-                -webkit-text-stroke: 2.5px #4169E1;
-            }
-
-            .bottom-container h2 {
-                font-size: clamp(20px, 3vw, 36px);
-            }
-        }
     </style>
 </head>
 <body>
