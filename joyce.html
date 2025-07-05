@@ -46,10 +46,11 @@
             100% { opacity: 1; transform: scale(1); }
         }
 
-        /* Container do link alinhado à direita */
+        /* Container do link alinhado à direita, mas sem ocupar tanto espaço */
         .link-container {
-            flex: 1;
+            flex: 0 0 auto;
             text-align: right;
+            margin-left: 20px;
         }
 
         /* Link “Feliz” */
@@ -117,6 +118,7 @@
             .link-container {
                 flex: none;
                 text-align: center;
+                margin-left: 0; /* tira o espaço lateral no mobile */
             }
 
             ul li a {
